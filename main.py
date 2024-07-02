@@ -13,6 +13,19 @@ def get_float_input(prompt):
         except ValueError:
             print("Invalid input. Please enter a number.")
 
+# User welcome message and input fields
+def main():
+    print("Welcome to the Restraunant/Cafe Cost-Profit Analyzer")
+    print("Please enter the following weekly costs:")
 
+    turnover = get_float_input("Weekly turnover: $")
+    cost_of_goods = get_float_input("Cost of goods sold: $")
+    cost_of_staffing = get_float_input("Cost of staffing: $")
+    cost_of_rent = get_float_input("Cost of rent: $")
+    cost_of_utilities = get_float_input("Cost of utilities: $")
 
+    total_costs = cost_of_goods + cost_of_staffing + cost_of_rent + cost_of_utilities
+    gross_profit = turnover - total_costs
+
+ 
 
