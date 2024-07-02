@@ -27,5 +27,11 @@ def main():
     total_costs = cost_of_goods + cost_of_staffing + cost_of_rent + cost_of_utilities
     gross_profit = turnover - total_costs
 
- 
+ # user financial summary
+    print("\nFinancial Summary:")
+    print(f"Weekly Turnover: ${turnover:.2f}")
+    print(f"Total Costs: ${total_costs:.2f}")
+    print(f"Gross Profit: ${gross_profit:.2f}")
 
+if __name__ == "__main__":
+    main()
