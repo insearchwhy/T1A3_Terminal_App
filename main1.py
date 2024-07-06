@@ -37,6 +37,7 @@ class IndustryBenchmark:
             warnings.append("Cost of utilities exceeds turnover. Industry standard is 10% or below!")
         
         return warnings
+
        
         
 # For user input define errors
@@ -72,7 +73,7 @@ def main():
         for warning in warnings:
             print(warning)
     else:
-        print("\nNo warning.")
+        print("\nGreat Job your cost are within industry standards!.")
 
     # User financial summary and warnings
     total_costs = cost_of_goods + cost_of_staffing + cost_of_rent + cost_of_utilities
