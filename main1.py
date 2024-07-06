@@ -1,5 +1,6 @@
 from datetime import datetime
 import os
+import logging
 
 # Pdf generation code
 class PDFGenerator:
@@ -14,6 +15,12 @@ class PDFGenerator:
             f.write(f"Gross Profit: ${gross_profit:.2f}\n")
 
         print(f"\nFinancial summary has been exported to {self.filename}")
+        
+ # Warnings for user if exceeds industry standards       
+class IndustryBenchmark:
+    @staticmethod
+    def check_against_benchmarks(turnover, cost_of_goods, cost_of_staffing, cost_of_rent, cost_of_utilities):
+       
         
 # For user input define errors
 def get_float_input(prompt):
@@ -38,15 +45,6 @@ def main():
     cost_of_rent = get_float_input("Cost of rent: $")
     cost_of_utilities = get_float_input("Cost of utilities: $")
 
-    # User warnings if costs exceed industry predefined standards
-    if cost_of_goods > 0.3 * turnover:
-        print("Warning: Cost of goods sold exceeds 30% of turnover. Industry standard is 30% or below!.")
-    if cost_of_staffing > 0.3 * turnover:
-        print("Warning: Cost of staffing exceeds 30% of turnover. Industry standard is 30% or below.")
-    if cost_of_rent > 0.1 * turnover:
-        print("Warning: Cost of rent exceeds 10% of turnover. Industry standard is 10% or below!")
-    if cost_of_utilities > turnover:
-        print("Warning: Cost of utilities exceeds turnover. Industry standard is 10% or below!")
 
     total_costs = cost_of_goods + cost_of_staffing + cost_of_rent + cost_of_utilities
     gross_profit = turnover - total_costs
