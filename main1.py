@@ -16,11 +16,20 @@ class PDFGenerator:
             f.write("Warnings:\n")
             for warning in warnings:
                 f.write(f"- {warning}\n")
+            else:
+                f.write("Great Job! Your costs are within industry standards.\n")
 
         print(f"\nFinancial summary has been exported to {self.filename}")
-        print("\nWarnings:")
-        for warning in warnings:
-            print(warning)
+        
+        if warnings:
+            print("\nWarnings:")
+            for warning in warnings:
+                print(warning)
+        else:
+            print("\nGreat Job! Your costs are within industry standards.")
+
+        
+            
         
 # Warnings for user if exceeds industry standards       
 class IndustryBenchmark:
