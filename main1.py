@@ -53,7 +53,7 @@ def main():
     print("Welcome to the Restaurant/Cafe Cost-Profit Analyzer")
     print("Please enter the following weekly costs:")
 
-    # User Input field
+# User input field
     turnover = get_float_input("Weekly turnover: $")
     cost_of_goods = get_float_input("Cost of goods sold: $")
     cost_of_staffing = get_float_input("Cost of staffing: $")
@@ -63,7 +63,7 @@ def main():
     # Check against industry benchmarks
     warnings = IndustryBenchmark.check_against_benchmarks(turnover, cost_of_goods, cost_of_staffing, cost_of_rent, cost_of_utilities)
 
-    # User financial summary and warnings
+    # User financial summary 
     total_costs = cost_of_goods + cost_of_staffing + cost_of_rent + cost_of_utilities
     gross_profit = turnover - total_costs
 
@@ -75,10 +75,11 @@ def main():
     # Export the financial summary to a text file
     filename = f"financial_summary_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.txt"
     pdf = PDFGenerator(filename)
-    pdf.generate_pdf(turnover, total_costs, gross_profit, )
+    pdf.generate_pdf(turnover, total_costs, gross_profit, warnings)
 
 if __name__ == "__main__":
     main()
+
 
 
 
