@@ -62,8 +62,16 @@ def main():
 
     # Check against industry benchmarks
     warnings = IndustryBenchmark.check_against_benchmarks(turnover, cost_of_goods, cost_of_staffing, cost_of_rent, cost_of_utilities)
+    
+    # Print warnings
+    if warnings:
+        print("\nWarning:")
+        for warning in warnings:
+            print(warning)
+    else:
+        print("\nNo warning.")
 
-    # User financial summary 
+    # User financial summary and warnings
     total_costs = cost_of_goods + cost_of_staffing + cost_of_rent + cost_of_utilities
     gross_profit = turnover - total_costs
 
