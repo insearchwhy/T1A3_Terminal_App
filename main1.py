@@ -16,10 +16,21 @@ class PDFGenerator:
 
         print(f"\nFinancial summary has been exported to {self.filename}")
         
- # Warnings for user if exceeds industry standards       
+# Warnings for user if exceeds industry standards       
 class IndustryBenchmark:
     @staticmethod
     def check_against_benchmarks(turnover, cost_of_goods, cost_of_staffing, cost_of_rent, cost_of_utilities):
+        warnings = []
+        if cost_of_goods > 0.3 * turnover:
+            warnings.append("Cost of goods sold exceeds 30% of turnover. Industry standard is 30% or below!.")
+        if cost_of_staffing > 0.3 * turnover:
+            warnings.append("Cost of staffing exceeds 30% of turnover. Industry standard is 30% or below.")
+        if cost_of_rent > 0.1 * turnover:
+            warnings.append("Cost of rent exceeds 10% of turnover. Industry standard is 10% or below!")
+        if cost_of_utilities > 0.1 * turnover:
+            warnings.append("Cost of utilities exceeds turnover. Industry standard is 10% or below!")
+        
+        return warnings
        
         
 # For user input define errors
