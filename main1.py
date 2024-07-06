@@ -56,6 +56,11 @@ def main():
     print(f"Weekly Turnover: ${turnover:.2f}")
     print(f"Total Costs: ${total_costs:.2f}")
     print(f"Gross Profit: ${gross_profit:.2f}")
+    
+# Export the financial summary to a text file
+    filename = f"financial_summary_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.txt"
+    pdf = PDFGenerator(filename)
+    pdf.generate_pdf(turnover, total_costs, gross_profit)    
 
     
 
