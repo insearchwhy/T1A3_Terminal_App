@@ -48,35 +48,37 @@ def get_float_input(prompt):
         except ValueError:
             print("Invalid input. Please enter a number.")
             
-# User welcome message and input fields
+# User welcome message 
 def main():
     print("Welcome to the Restaurant/Cafe Cost-Profit Analyzer")
     print("Please enter the following weekly costs:")
 
+    # User Input field
     turnover = get_float_input("Weekly turnover: $")
     cost_of_goods = get_float_input("Cost of goods sold: $")
     cost_of_staffing = get_float_input("Cost of staffing: $")
     cost_of_rent = get_float_input("Cost of rent: $")
     cost_of_utilities = get_float_input("Cost of utilities: $")
 
+    # Check against industry benchmarks
+    warnings = IndustryBenchmark.check_against_benchmarks(turnover, cost_of_goods, cost_of_staffing, cost_of_rent, cost_of_utilities)
 
+    # User financial summary and warnings
     total_costs = cost_of_goods + cost_of_staffing + cost_of_rent + cost_of_utilities
     gross_profit = turnover - total_costs
 
-    # User financial summary
     print("\nFinancial Summary:")
     print(f"Weekly Turnover: ${turnover:.2f}")
     print(f"Total Costs: ${total_costs:.2f}")
     print(f"Gross Profit: ${gross_profit:.2f}")
-    
-# Export the financial summary to a text file
+
+    # Export the financial summary to a text file
     filename = f"financial_summary_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.txt"
     pdf = PDFGenerator(filename)
-    pdf.generate_pdf(turnover, total_costs, gross_profit)    
-
-    
+    pdf.generate_pdf(turnover, total_costs, gross_profit, )
 
 if __name__ == "__main__":
     main()
+
 
 
