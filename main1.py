@@ -13,23 +13,21 @@ class PDFGenerator:
             f.write(f"Weekly Turnover: ${turnover:.2f}\n")
             f.write(f"Total Costs: ${total_costs:.2f}\n")
             f.write(f"Gross Profit: ${gross_profit:.2f}\n\n")
-            f.write("Warnings:\n")
-            for warning in warnings:
-                f.write(f"- {warning}\n")
+            
+            if warnings:
+                f.write("Warnings:\n")
+                for warning in warnings:
+                    f.write(f"- {warning}\n")
+                print(f"\nWarnings have been exported to {self.filename}")
             else:
                 f.write("Great Job! Your costs are within industry standards.\n")
+                print(f"\nGreat Job! Your costs are within industry standards. Financial summary has been exported to {self.filename}")
 
-        print(f"\nFinancial summary has been exported to {self.filename}")
-        
-        if warnings:
-            print("\nWarnings:")
-            for warning in warnings:
-                print(warning)
-        else:
-            print("\nGreat Job! Your costs are within industry standards.")
-
-        
-            
+            print("Industry standard cost for your industry as follows")
+            print("Cost of goods - 30% of turnover")
+            print("Staffing cost - 30% of turnover")
+            print("Rent cost - 10% of turnover")
+            print("Utilities cost - 10% of turnover")
         
 # Warnings for user if exceeds industry standards       
 class IndustryBenchmark:
@@ -46,6 +44,8 @@ class IndustryBenchmark:
             warnings.append("Cost of utilities exceeds turnover. Industry standard is 10% or below!")
         
         return warnings
+    
+       
 
        
         
