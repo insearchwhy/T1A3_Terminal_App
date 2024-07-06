@@ -7,12 +7,15 @@ class PDFGenerator:
     def __init__(self, filename):
         self.filename = filename
 
-    def generate_pdf(self, turnover, total_costs, gross_profit):
+    def generate_pdf(self, turnover, total_costs, gross_profit, warnings):
         with open(self.filename, 'w') as f:
             f.write(f"Financial Summary\n\n")
             f.write(f"Weekly Turnover: ${turnover:.2f}\n")
             f.write(f"Total Costs: ${total_costs:.2f}\n")
-            f.write(f"Gross Profit: ${gross_profit:.2f}\n")
+            f.write(f"Gross Profit: ${gross_profit:.2f}\n\n")
+            f.write("Warnings:\n")
+            for warning in warnings:
+                f.write(f"- {warning}\n")
 
         print(f"\nFinancial summary has been exported to {self.filename}")
         
