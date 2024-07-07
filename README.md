@@ -1,5 +1,7 @@
 # T1A3_Terminal_App
 
+working ideas
+
 - create input for user
 - export report/summary
 - error handling 
@@ -38,3 +40,49 @@ Feedback Message: A welcome note pops up. It asks users to put in their weekly m
 
 
 The main function employs local variables like turnover and cost_of_goods. These store and crunch user inputs and calculations. A while loop in get_float_input checks input. If-else statements print warnings or success messages based on benchmarks. Get_float_input boasts a try-except block. It catches input errors - those pesky non-numeric values that can trip up the system.
+
+# Restaurant/Cafe Cost-Profit Analyzer Documentation &  Install guide
+
+Introduction
+Welcome to the Restaurant/Cafe Cost-Profit Analyzer! This application helps you analyze your weekly financial performance based on input costs and provides insights into industry benchmarks.
+
+Installation
+Clone the Repository:
+
+bash
+Copy code
+git clone https://github.com/your-repository.git
+cd your-repository
+Install Python 3:
+Ensure Python 3 is installed on your system. You can download it from python.org and follow the installation instructions for your operating system.
+
+Install Required Packages:
+This application requires no external packages beyond the standard library.
+
+Dependencies
+Python 3.x
+System/Hardware Requirements
+Operating System: Windows, macOS, Linux
+Disk Space: Minimal
+Usage
+Run the Application:
+Open a terminal or command prompt and navigate to the directory containing cost_profit_analyzer.py.
+
+Copy code
+python3 cost_profit_analyzer.py
+Input Weekly Costs:
+Follow the prompts to enter the following weekly costs:
+
+Weekly turnover
+Cost of goods sold
+Cost of staffing
+Cost of rent
+Cost of utilities
+View Analysis:
+
+The application will analyze your costs against industry benchmarks.
+It will display any warnings if your costs exceed industry standards.
+It will show a financial summary including turnover, total costs, and gross profit.
+Export Results:
+
+A financial summary will be exported to a text file (financial_summary_<timestamp>.txt) in the current directory.
