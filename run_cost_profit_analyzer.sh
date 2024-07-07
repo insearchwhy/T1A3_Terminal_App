@@ -1,4 +1,7 @@
 #!/bin/bash
 
 
-python3 main1.py
+
+python3 cost_profit_analyzer.pyc
+
+
